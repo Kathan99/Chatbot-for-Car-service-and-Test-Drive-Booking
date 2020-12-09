@@ -1,0 +1,30 @@
+
+## survey ask testdrive
+*greet
+    - utter_greet
+    - utter_help
+*testdriveneed
+    - utter_road_types
+*cityroad
+    - utter_best_citycar
+    - utter_aspire
+    - utter_figo
+    - utter_focus
+    - utter_freestyle
+*carselect{"testcar":"Figo"}
+    - slot{"testcar":"Figo"}
+    - testdrive
+    - slot{"testcar":null}
+*confirmation
+    - utter_great_news
+    - utter_start_book
+*affirm
+    - testbook
+    - form{"name":"testbook"}
+    - form{"name":null}
+
+
+* confirm
+    - testbook
+    - form{"name":"testbook"}
+    - form{"name":null}    

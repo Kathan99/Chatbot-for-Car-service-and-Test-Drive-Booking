@@ -1,0 +1,27 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+pipeline:
+  - name: "SpacyNLP"
+    model: "en_core_web_md"
+  - name: "SpacyTokenizer"
+  - name: "SpacyFeaturizer"
+  - name: "RegexFeaturizer"
+  - name: "EntitySynonymMapper"
+  - name: "CRFEntityExtractor"
+  - name: "SklearnIntentClassifier"
+  - name: "DucklingHTTPExtractor"
+    url: "http://192.168.99.100:8000/"
+    dimensions: ["time","email","number"]
+    timezone: "India/Kolkata"
+
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+  - name: MappingPolicy
+  - name: FormPolicy
